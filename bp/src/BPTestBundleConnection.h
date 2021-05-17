@@ -10,13 +10,12 @@
 #import "BPExecutionContext.h"
 #import "BPSimulator.h"
 
-// This is a small subset of XCTestManager_IDEInterface protocol
+// This is a small subset of XCTMessagingChannel_IDEToRunner protocol
 @protocol BPTestBundleConnectionDelegate <NSObject>
 - (void)_XCT_launchProcessWithPath:(NSString *)path bundleID:(NSString *)bundleID arguments:(NSArray *)arguments environmentVariables:(NSDictionary *)environment;
 @end
 
 @interface BPTestBundleConnection : NSObject
-@property (nonatomic, strong) BPConfiguration *config;
 @property (nonatomic, strong) BPExecutionContext *context;
 @property (nonatomic, strong) BPSimulator *simulator;
 @property (nonatomic, copy) void (^completionBlock)(NSError *, pid_t);
